@@ -1,0 +1,20 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: k8s-novice-test
+  region: ap-northeast-1
+
+availabilityZones: ["ap-northeast-1a", "ap-northeast-1c"]
+
+nodeGroups:
+  - name: novice-nodegroup
+    instanceType: t3.medium
+    desiredCapacity: 2
+    minSize: 2
+    maxSize: 4
+    iam:
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
+        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
