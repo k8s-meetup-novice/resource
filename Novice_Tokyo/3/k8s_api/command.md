@@ -8,7 +8,7 @@ k8s=$KUBERNETES_PORT_443_TCP_ADDR:$KUBERNETES_PORT_443_TCP_PORT
 
 
 
-curl -X POST -H "Authorization:Bearer $TOKEN" \
+# curl -X POST -H "Authorization:Bearer $TOKEN" \
 --cacert $CACERT -H 'Content-Type:application/json' \
 -d @deployment.json https://$k8s/apis/apps/v1/namespaces/apitest/deployments
 
