@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: apitest
+spec:
+  serviceAccount: admin-sa
+  containers:
+  - name: nginx
+    image: nginx:1.17.7

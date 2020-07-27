@@ -1,0 +1,37 @@
+{
+  "apiVersion":"apps/v1",
+  "kind":"Deployment",
+  "metadata":{
+    "labels":{
+      "name":"test-api"
+    },
+    "name":"apitest-nginx",
+    "namespace":"apitest"
+  },
+  "spec":{
+    "replicas":3,
+    "selector":{
+      "matchLabels":{
+        "name":"test-api"
+      }
+    },
+    "template":{
+      "metadata":{
+        "labels":{
+          "name":"test-api"
+        }
+      },
+      "spec":{
+        "containers":[
+          {
+            "image":"nginx:1.17.7",
+            "name":"apitest"
+          }
+        ],
+        "dnsConfig":{
+          "nameservers":["8.8.8.8"]
+        }
+      }
+    }
+  }
+}
